@@ -11194,9 +11194,9 @@ stacktrace-parser@0.1.10:
   dependencies:
     type-fest "^0.7.1"
 
-standard-version@^9.3.0:
-  version "9.3.0"
-  resolved "https://registry.npmjs.org/standard-version/-/standard-version-9.3.0.tgz"
+standard-version@^9.3.1:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/standard-version/-/standard-version-9.3.1.tgz#786c16c318847f58a31a2434f97e8db33a635853"
   dependencies:
     chalk "^2.4.2"
     conventional-changelog "3.1.24"
