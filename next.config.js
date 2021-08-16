@@ -6,5 +6,6 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     disable: !isProd
-  }
+  },
+  pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts']
 })
