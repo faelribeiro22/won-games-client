@@ -2677,9 +2677,9 @@
     "@babel/runtime" "^7.10.5"
     "@styled-icons/styled-icon" "^10.6.0"
 
-"@styled-icons/simple-icons@10.40.0":
-  version "10.40.0"
-  resolved "https://registry.yarnpkg.com/@styled-icons/simple-icons/-/simple-icons-10.40.0.tgz#3c449df2a7d778cda6a056fee06d01d8de74884d"
+"@styled-icons/simple-icons@10.41.0":
+  version "10.41.0"
+  resolved "https://registry.yarnpkg.com/@styled-icons/simple-icons/-/simple-icons-10.41.0.tgz#6337c68a45bcc8500517958a418b63b33468e3c2"
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@styled-icons/styled-icon" "^10.6.3"
@@ -11618,9 +11618,9 @@ styled-components@5.3.1:
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
 
-styled-icons@^10.40.0:
-  version "10.40.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-10.40.0.tgz#0299f6f352b856cd0b3836c96fc482e165830e84"
+styled-icons@^10.41.0:
+  version "10.41.0"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-10.41.0.tgz#39b01f253a028bbda495764fefcd8ebce42f39b7"
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@styled-icons/bootstrap" "10.34.0"
@@ -11656,7 +11656,7 @@ styled-icons@^10.40.0:
     "@styled-icons/remix-editor" "10.33.0"
     "@styled-icons/remix-fill" "10.18.0"
     "@styled-icons/remix-line" "10.18.0"
-    "@styled-icons/simple-icons" "10.40.0"
+    "@styled-icons/simple-icons" "10.41.0"
     "@styled-icons/styled-icon" "10.6.3"
     "@styled-icons/typicons" "10.18.0"
     "@styled-icons/zondicons" "10.18.0"
