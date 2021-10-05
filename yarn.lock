@@ -2651,9 +2651,9 @@
     "@babel/runtime" "^7.14.0"
     "@styled-icons/styled-icon" "^10.6.3"
 
-"@styled-icons/octicons@10.42.0":
-  version "10.42.0"
-  resolved "https://registry.yarnpkg.com/@styled-icons/octicons/-/octicons-10.42.0.tgz#bb1b8e937ba365b6085ef2e318d6ac243b7fe7c0"
+"@styled-icons/octicons@10.44.0":
+  version "10.44.0"
+  resolved "https://registry.yarnpkg.com/@styled-icons/octicons/-/octicons-10.44.0.tgz#d7b6366c74f1fa129914956f6fb83a084c0dee27"
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@styled-icons/styled-icon" "^10.6.3"
@@ -11646,9 +11646,9 @@ styled-components@5.3.1:
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
 
-styled-icons@^10.43.0:
-  version "10.43.0"
-  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-10.43.0.tgz#318f7cf2965dd511cea88c070c658a53ac6cb45a"
+styled-icons@^10.44.0:
+  version "10.44.0"
+  resolved "https://registry.yarnpkg.com/styled-icons/-/styled-icons-10.44.0.tgz#981dee35ace92882e09c2721b791522ab6f2879a"
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@styled-icons/bootstrap" "10.34.0"
@@ -11679,7 +11679,7 @@ styled-icons@^10.43.0:
     "@styled-icons/material-rounded" "10.34.0"
     "@styled-icons/material-sharp" "10.34.0"
     "@styled-icons/material-twotone" "10.34.0"
-    "@styled-icons/octicons" "10.42.0"
+    "@styled-icons/octicons" "10.44.0"
     "@styled-icons/open-iconic" "10.18.0"
     "@styled-icons/remix-editor" "10.33.0"
     "@styled-icons/remix-fill" "10.18.0"
