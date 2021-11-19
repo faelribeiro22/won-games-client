@@ -4538,19 +4538,19 @@ cli-table3@0.6.0:
   optionalDependencies:
     colors "^1.1.2"
 
-cli-truncate@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/cli-truncate/-/cli-truncate-3.1.0.tgz#3f23ab12535e3d73e839bb43e73c9de487db1389"
-  dependencies:
-    slice-ansi "^5.0.0"
-    string-width "^5.0.0"
-
 cli-truncate@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-truncate/-/cli-truncate-2.1.0.tgz#c39e28bf05edcde5be3b98992a22deed5a2b93c7"
   dependencies:
     slice-ansi "^3.0.0"
     string-width "^4.2.0"
+
+cli-truncate@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/cli-truncate/-/cli-truncate-3.1.0.tgz#3f23ab12535e3d73e839bb43e73c9de487db1389"
+  dependencies:
+    slice-ansi "^5.0.0"
+    string-width "^5.0.0"
 
 cli-width@^3.0.0:
   version "3.0.0"
@@ -5637,7 +5637,7 @@ enhanced-resolve@^4.5.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-enquirer@^2.3.5:
+enquirer@^2.3.5, enquirer@^2.3.6:
   version "2.3.6"
   resolved "https://registry.npmjs.org/enquirer/-/enquirer-2.3.6.tgz"
   dependencies:
@@ -6891,10 +6891,6 @@ has-flag@^3.0.0:
 has-flag@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz"
-
-has-flag@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-5.0.1.tgz#5483db2ae02a472d1d0691462fc587d1843cd940"
 
 has-glob@^1.0.0:
   version "1.0.0"
@@ -8526,22 +8522,23 @@ lines-and-columns@^1.1.6:
   version "1.1.6"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.1.6.tgz"
 
-lint-staged@^12.0.2:
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.0.2.tgz#b0f96f2a57898658a5b59e087aeff975dad03fc1"
+lint-staged@^12.0.3:
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-12.0.3.tgz#ad4fb2f857e08b5814abe9e9fbbbcceebfdd8484"
   dependencies:
-    cli-truncate "3.1.0"
+    cli-truncate "^3.1.0"
     colorette "^2.0.16"
     commander "^8.3.0"
     cosmiconfig "^7.0.1"
     debug "^4.3.2"
+    enquirer "^2.3.6"
     execa "^5.1.1"
     listr2 "^3.13.3"
     micromatch "^4.0.4"
     normalize-path "^3.0.0"
-    object-inspect "1.11.0"
-    string-argv "0.3.1"
-    supports-color "9.0.2"
+    object-inspect "^1.11.0"
+    string-argv "^0.3.1"
+    supports-color "^9.0.2"
 
 listr2@^3.13.3:
   version "3.13.3"
@@ -9417,7 +9414,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-object-inspect@1.11.0, object-inspect@^1.11.0, object-inspect@^1.9.0:
+object-inspect@^1.11.0, object-inspect@^1.9.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.11.0.tgz#9dceb146cedd4148a0d9e51ab88d34cf509922b1"
 
@@ -11474,9 +11471,9 @@ stream-shift@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/stream-shift/-/stream-shift-1.0.1.tgz"
 
-string-argv@0.3.1:
+string-argv@^0.3.1:
   version "0.3.1"
-  resolved "https://registry.npmjs.org/string-argv/-/string-argv-0.3.1.tgz"
+  resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
 
 string-hash@1.1.3:
   version "1.1.3"
@@ -11769,12 +11766,6 @@ stylis@3.5.4:
   version "3.5.4"
   resolved "https://registry.npmjs.org/stylis/-/stylis-3.5.4.tgz"
 
-supports-color@9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.0.2.tgz#50f082888e4b0a4e2ccd2d0b4f9ef4efcd332485"
-  dependencies:
-    has-flag "^5.0.0"
-
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz"
@@ -11802,6 +11793,10 @@ supports-color@^8.0.0:
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-8.1.1.tgz"
   dependencies:
     has-flag "^4.0.0"
+
+supports-color@^9.0.2:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.1.0.tgz#558963681dafeff41ed68220488cbf438d29f351"
 
 supports-hyperlinks@^2.0.0:
   version "2.2.0"
