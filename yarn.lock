@@ -3424,9 +3424,9 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@^17.0.0":
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.0.tgz#62797cee3b8b497f6547503b2312254d4fe3c2bb"
+"@types/node@*", "@types/node@^17.0.3":
+  version "17.0.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.3.tgz#4b086e316ed4504f49bd78135d48642bf50aa135"
 
 "@types/node@^14.0.10":
   version "14.14.44"
