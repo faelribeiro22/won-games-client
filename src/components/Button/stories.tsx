@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Story, Meta } from '@storybook/react/types-7-0'
 import { AddShoppingCart } from '@styled-icons/material/AddShoppingCart'
 import Button, { ButtonProps } from '.'
