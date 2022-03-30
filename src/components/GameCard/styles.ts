@@ -28,6 +28,7 @@ export const ImageBox = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    min-height: 14rem;
   }
   @keyframes placeholderShimmer {
     0% {
@@ -109,7 +110,7 @@ const priceModifiers = {
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;
-    margin-right: ${theme.spacings.xsmall};
+    margin-right: ${theme.spacings.xxsmall};
   `
 }
 
@@ -119,7 +120,7 @@ export const Price = styled.div<PriceProps>`
     font-weight: ${theme.font.bold};
     height: 3rem;
     align-items: center;
-    ${!isPromotional && priceModifiers.default(theme)}
-    ${isPromotional && priceModifiers.promotional(theme)}
+    ${!isPromotional && priceModifiers.default(theme)};
+    ${isPromotional && priceModifiers.promotional(theme)};
   `}
 `
