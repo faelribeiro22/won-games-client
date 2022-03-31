@@ -12,7 +12,7 @@ export const Wrapper = styled.article`
 `
 
 export const ImageBox = styled.div`
-  height: 14rem;
+  min-height: 14rem;
   width: 100%;
   background: #f6f7f8;
   background-image: linear-gradient(
@@ -28,7 +28,6 @@ export const ImageBox = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    min-height: 14rem;
   }
   @keyframes placeholderShimmer {
     0% {
