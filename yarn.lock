@@ -9261,9 +9261,9 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz"
 
-next-pwa@^5.4.6:
-  version "5.4.6"
-  resolved "https://registry.npmjs.org/next-pwa/-/next-pwa-5.4.6.tgz"
+next-pwa@^5.4.7:
+  version "5.4.7"
+  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-5.4.7.tgz#22e6e3a70e695f6dc58df72d5fb901bb77bfdb0b"
   dependencies:
     babel-loader "^8.2.3"
     clean-webpack-plugin "^4.0.0"
