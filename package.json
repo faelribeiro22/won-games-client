@@ -44,8 +44,8 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/preset-typescript": "^7.16.7",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/react": "^6.4.19",
+    "@storybook/addon-essentials": "^6.5.3",
+    "@storybook/react": "^6.5.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^27.4.1",
@@ -63,6 +63,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-storybook": "^0.5.12",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-styled-components": "^7.0.8",
