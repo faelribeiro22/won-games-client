@@ -6,17 +6,17 @@ import Showcase from '.'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 const props = {
-  heading: 'Most Popular',
+  title: 'Most Popular',
   highlight: highlightMock,
   games: gamesMock.slice(0, 1)
 }
 
 describe('<Showcase />', () => {
-  it('should render the heading', () => {
+  it('should render full showcase', () => {
     renderWithTheme(<Showcase {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /Most Popular/i })
+      screen.getByRole('heading', { name: /most popular/i })
     ).toBeInTheDocument()
 
     expect(
