@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { getByRole, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { AddShoppingCart } from '@styled-icons/material/AddShoppingCart'
 import Button from '.'
@@ -81,6 +81,18 @@ describe('<Button />', () => {
     expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
       'href',
       '/link'
+    )
+  })
+
+  it('should render a disabled button', () => {
+    renderWithTheme(<Button disabled>Buy now</Button>)
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'cursor',
+      'not-allowed',
+      {
+        modifier: ':disabled'
+      }
     )
   })
 })
