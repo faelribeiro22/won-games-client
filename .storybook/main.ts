@@ -1,5 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import { mergeConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import path from 'path'
 
 const config: StorybookConfig = {
@@ -15,6 +16,7 @@ const config: StorybookConfig = {
   },
   viteFinal: async (config) => {
     return mergeConfig(config, {
+      plugins: [react()],
       resolve: {
         alias: {
           components: path.resolve(__dirname, '../src/components'),
