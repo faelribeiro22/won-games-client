@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Story, Meta } from '@storybook/react/types-7-0'
-import { AddShoppingCart } from '@styled-icons/material/AddShoppingCart'
+import { Story, Meta } from '@storybook/react'
+import { MdAddShoppingCart } from 'react-icons/md'
 import Button, { ButtonProps } from '.'
 
 export default {
@@ -27,7 +27,7 @@ export const withIcon: Story = (args: any) => <Button {...args} />
 withIcon.args = {
   size: 'small',
   children: 'Buy Now',
-  icon: <AddShoppingCart />
+  icon: <MdAddShoppingCart />
 }
 
 export const asLink: Story = (args: any) => <Button {...args} />

@@ -1,0 +1,105 @@
+
+> won-games-client@0.1.0 build
+> next build
+
+ ⚠ Invalid next.config.js options detected: 
+ ⚠     Unrecognized key(s) in object: '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+   ▲ Next.js 15.5.14
+
+   Linting and checking validity of types ...
+
+ ⚠ The Next.js plugin was not detected in your ESLint configuration. See https://nextjs.org/docs/app/api-reference/config/eslint#migrating-existing-config
+
+Failed to compile.
+
+./src/components/Button/index.tsx
+1:9  Error: Replace `⏎··forwardRef,⏎··AnchorHTMLAttributes,⏎··ButtonHTMLAttributes⏎` with `·forwardRef,·AnchorHTMLAttributes,·ButtonHTMLAttributes·`  prettier/prettier
+73:1  Error: Delete `⏎`  prettier/prettier
+
+./src/components/Button/stories.tsx
+3:10  Error: 'MdMdAddShoppingCart' is defined but never used.  @typescript-eslint/no-unused-vars
+30:10  Error: 'MdAddShoppingCart' is not defined.  react/jsx-no-undef
+
+./src/components/Button/test.tsx
+3:10  Error: 'MdMdAddShoppingCart' is defined but never used.  @typescript-eslint/no-unused-vars
+48:22  Error: 'MdAddShoppingCart' is not defined.  react/jsx-no-undef
+57:22  Error: 'MdAddShoppingCart' is not defined.  react/jsx-no-undef
+
+./src/components/Container/index.tsx
+9:24  Error: Replace `⏎····'w-full·max-w-container·mx-auto·px-xsmall',⏎····className⏎··` with `'w-full·max-w-container·mx-auto·px-xsmall',·className`  prettier/prettier
+
+./src/components/FormSignIn/index.tsx
+22:9  Error: Delete `·`  prettier/prettier
+23:17  Error: Delete `·`  prettier/prettier
+32:12  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./src/components/Gallery/index.tsx
+68:7  Error: Expected an assignment or function call and instead saw an expression.  @typescript-eslint/no-unused-expressions
+
+./src/components/GameCard/index.tsx
+54:14  Error: Unknown property 'jsx' found  react/no-unknown-property
+94:48  Error: Replace `⏎············{promotionalPrice·||·price}⏎··········` with `{promotionalPrice·||·price}`  prettier/prettier
+
+./src/components/GameDetails/test.tsx
+16:13  Error: 'container' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Grid/index.tsx
+9:24  Error: Replace `⏎····'grid·grid-cols-main·gap-medium·my-medium',⏎····className⏎··` with `'grid·grid-cols-main·gap-medium·my-medium',·className`  prettier/prettier
+
+./src/components/Heading/index.tsx
+36:22  Error: Replace `⏎······?·'border-l-primary'⏎·····` with `·?·'border-l-primary'`  prettier/prettier
+39:24  Error: Replace `⏎······?·'border-l-secondary'⏎·····` with `·?·'border-l-secondary'`  prettier/prettier
+60:1  Error: Delete `⏎`  prettier/prettier
+
+./src/components/Highlight/index.tsx
+29:63  Error: Insert `⏎·······`  prettier/prettier
+30:63  Error: Insert `⏎·······`  prettier/prettier
+53:13  Error: Delete `·`  prettier/prettier
+
+./src/components/Menu/index.tsx
+3:9  Error: Replace `⏎··MdShoppingCart,⏎··MdMenu,⏎··MdSearch,⏎··MdClose⏎` with `·MdShoppingCart,·MdMenu,·MdSearch,·MdClose·`  prettier/prettier
+65:14  Error: Unknown property 'jsx' found  react/no-unknown-property
+
+./src/components/Ribbon/index.tsx
+21:15  Error: Insert `⏎·····`  prettier/prettier
+25:12  Error: Insert `⏎·····`  prettier/prettier
+26:11  Error: Insert `⏎·····`  prettier/prettier
+
+./src/components/Showcase/index.tsx
+39:23  Error: Replace `(⏎········<Highlight·{...highlight}·className="highlight"·/>⏎······)` with `<Highlight·{...highlight}·className="highlight"·/>`  prettier/prettier
+43:24  Error: Delete `·`  prettier/prettier
+44:24  Error: Delete `·`  prettier/prettier
+45:38  Error: Delete `·`  prettier/prettier
+46:39  Error: Delete `·`  prettier/prettier
+
+./src/components/Showcase/test.tsx
+2:10  Error: 'render' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/TextField/index.tsx
+34:5  Error: Expected an assignment or function call and instead saw an expression.  @typescript-eslint/no-unused-expressions
+
+./src/components/TextField/stories.tsx
+2:10  Error: 'MdMdEmail' is defined but never used.  @typescript-eslint/no-unused-vars
+41:10  Error: 'MdEmail' is not defined.  react/jsx-no-undef
+
+./src/templates/Auth/index.tsx
+13:9  Error: Replace `·className="hidden·md:block·relative·bg-cover·bg-center·p-xxlarge·pb-large"·style={{·backgroundImage:·'url(/img/auth-bg.jpg)'·}}` with `⏎······className="hidden·md:block·relative·bg-cover·bg-center·p-xxlarge·pb-large"⏎······style={{·backgroundImage:·'url(/img/auth-bg.jpg)'·}}⏎····`  prettier/prettier
+15:1  Error: Delete `······`  prettier/prettier
+25:79  Error: Insert `⏎···········`  prettier/prettier
+28:57  Error: Replace `Won·Games·2020·©·Todos·os·Direitos·Reservados` with `⏎··········Won·Games·2020·©·Todos·os·Direitos·Reservados⏎········`  prettier/prettier
+
+./src/templates/Game/index.tsx
+35:9  Error: Delete `·`  prettier/prettier
+38:19  Error: Delete `·`  prettier/prettier
+39:25  Error: Delete `·`  prettier/prettier
+
+./src/templates/Game/test.tsx
+8:8  Error: 'textContentMock' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/jest-styled-components.d.ts
+3:1  Error: Definition for rule '@typescript-eslint/ban-types' was not found.  @typescript-eslint/ban-types
+10:56  Error: The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type.  @typescript-eslint/no-unsafe-function-type
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

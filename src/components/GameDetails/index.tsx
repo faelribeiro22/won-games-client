@@ -1,9 +1,8 @@
-import { Apple, Windows, Linux } from 'styled-icons/fa-brands'
+import clsx from 'clsx'
+import { FaApple, FaWindows, FaLinux } from 'react-icons/fa'
 
 import Heading from 'components/Heading'
 import MediaMatch from 'components/MediaMatch'
-
-import * as S from './styles'
 
 type Platform = 'windows' | 'linux' | 'mac'
 
@@ -16,6 +15,7 @@ export type GameDetailsProps = {
   platforms: Platform[]
   rating: Rating
   genres: string[]
+  className?: string
 }
 
 const GameDetails = ({
@@ -24,66 +24,71 @@ const GameDetails = ({
   platforms,
   releaseDate,
   rating,
-  genres
+  genres,
+  className
 }: GameDetailsProps) => {
   const platformIcons = {
-    linux: <Linux title="Linux" size={18} />,
-    mac: <Apple title="Mac" size={18} />,
-    windows: <Windows title="Windows" size={18} />
+    linux: <FaLinux title="Linux" size={18} />,
+    mac: <FaApple title="Mac" size={18} />,
+    windows: <FaWindows title="Windows" size={18} />
   }
 
   return (
-    <S.Wrapper>
+    <div className={clsx('m-small', className)}>
       <MediaMatch greaterThan="small">
         <Heading lineLeft lineColor="secondary">
           Game Details
         </Heading>
       </MediaMatch>
 
-      <S.Content>
-        <S.Block>
-          <S.Label>Developer</S.Label>
-          <S.Description>{developer}</S.Description>
-        </S.Block>
+      <div className="grid gap-xsmall grid-cols-2 mt-small md:grid-cols-3 lg:grid-cols-6">
+        <div>
+          <h3 className="text-small font-light text-white">Developer</h3>
+          <p className="text-medium font-bold text-white">{developer}</p>
+        </div>
 
-        <S.Block>
-          <S.Label>Release Date</S.Label>
-          <S.Description>
+        <div>
+          <h3 className="text-small font-light text-white">Release Date</h3>
+          <p className="text-medium font-bold text-white">
             {new Intl.DateTimeFormat('en-US', {
               day: 'numeric',
               month: 'short',
               year: 'numeric'
             }).format(new Date(releaseDate))}
-          </S.Description>
-        </S.Block>
+          </p>
+        </div>
 
-        <S.Block>
-          <S.Label>Platforms</S.Label>
-          <S.IconsWrapper>
+        <div>
+          <h3 className="text-small font-light text-white">Platforms</h3>
+          <div className="text-white">
             {platforms.map((icon: Platform) => (
-              <S.Icon key={icon}>{platformIcons[icon]}</S.Icon>
+              <span key={icon} className="mr-xxsmall">
+                {platformIcons[icon]}
+              </span>
             ))}
-          </S.IconsWrapper>
-        </S.Block>
+          </div>
+        </div>
 
-        <S.Block>
-          <S.Label>Publisher</S.Label>
-          <S.Description>{publisher}</S.Description>
-        </S.Block>
+        <div>
+          <h3 className="text-small font-light text-white">Publisher</h3>
+          <p className="text-medium font-bold text-white">{publisher}</p>
+        </div>
 
-        <S.Block>
-          <S.Label>Rating</S.Label>
-          <S.Description>
+        <div>
+          <h3 className="text-small font-light text-white">Rating</h3>
+          <p className="text-medium font-bold text-white">
             {rating === 'BR0' ? 'FREE' : `${rating.replace('BR', '')}+`}
-          </S.Description>
-        </S.Block>
+          </p>
+        </div>
 
-        <S.Block>
-          <S.Label>Genres</S.Label>
-          <S.Description>{genres.join(' / ')}</S.Description>
-        </S.Block>
-      </S.Content>
-    </S.Wrapper>
+        <div>
+          <h3 className="text-small font-light text-white">Genres</h3>
+          <p className="text-medium font-bold text-white">
+            {genres.join(' / ')}
+          </p>
+        </div>
+      </div>
+    </div>
   )
 }
 

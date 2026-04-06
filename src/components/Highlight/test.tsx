@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import Highlight from '.'
-import * as S from './styles'
 
 const props = {
   title: 'Heading 1',
@@ -46,28 +45,18 @@ describe('<Highlight />', () => {
   it('should render align right by default', () => {
     const { container } = renderWithTheme(<Highlight {...props} />)
 
-    expect(container.firstChild).toHaveStyleRule(
-      'grid-template-areas',
-      "'floatimage content'"
-    )
-
-    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
-      modifier: `${S.Content}`
-    })
+    const wrapper = container.firstChild as HTMLElement
+    expect(wrapper?.className).toContain('grid-areas-[floatimage_content]')
+    expect(wrapper?.className).toContain('grid-cols-[1.3fr_2fr]')
   })
 
-  it('should render align right by default', () => {
+  it('should render align left when specified', () => {
     const { container } = renderWithTheme(
       <Highlight {...props} alignment="left" />
     )
 
-    expect(container.firstChild).toHaveStyleRule(
-      'grid-template-areas',
-      "'content floatimage'"
-    )
-
-    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
-      modifier: `${S.Content}`
-    })
+    const wrapper = container.firstChild as HTMLElement
+    expect(wrapper?.className).toContain('grid-areas-[content_floatimage]')
+    expect(wrapper?.className).toContain('grid-cols-[2fr_1.3fr]')
   })
 })

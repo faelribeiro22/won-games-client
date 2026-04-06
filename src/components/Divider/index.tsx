@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import clsx from 'clsx'
 
-export const Divider = styled.hr`
-  ${({ theme }) => css`
-    margin: ${theme.spacings.xxlarge} auto ${theme.spacings.medium};
-    height: 0.1rem;
-    background: rgba(181, 181, 181, 0.3);
-    border: 0;
+export type DividerProps = {
+  className?: string
+}
 
-    ${media.greaterThan('medium')`
-      margin: calc(${theme.spacings.xxlarge} * 2.5) auto ${theme.spacings.xxlarge};
-    `}
-  `}
-`
+export const Divider = ({ className }: DividerProps) => {
+  const classes = clsx(
+    'my-xxlarge mx-auto h-[0.1rem] bg-[rgba(181,181,181,0.3)] border-0',
+    'md:my-[14rem]',
+    className
+  )
+
+  return <hr className={classes} />
+}

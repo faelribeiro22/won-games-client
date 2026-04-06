@@ -1,5 +1,5 @@
 import 'match-media-mock'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import highlightMock from 'components/Highlight/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import Showcase from '.'

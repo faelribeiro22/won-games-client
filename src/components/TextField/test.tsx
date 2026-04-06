@@ -1,6 +1,6 @@
 import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Mail } from 'styled-icons/material-outlined'
+import { MdEmail } from 'react-icons/md'
 
 import { renderWithTheme } from 'utils/tests/helpers'
 
@@ -64,7 +64,7 @@ describe('<TextField />', () => {
         label="TextField"
         labelFor="TextField"
         id="TextField"
-        icon={<Mail data-testid="icon" />}
+        icon={<MdEmail data-testid="icon" />}
       />
     )
     expect(screen.getByTestId('icon')).toBeInTheDocument()
@@ -72,10 +72,10 @@ describe('<TextField />', () => {
 
   it('Renders with Icon on the right side', () => {
     renderWithTheme(
-      <TextField icon={<Mail data-testid="icon" />} iconPosition="right" />
+      <TextField icon={<MdEmail data-testid="icon" />} iconPosition="right" />
     )
 
-    expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 1 })
+    expect(screen.getByTestId('icon').parentElement).toHaveClass('order-1')
   })
 
   it('Does not changes its value when disabled', async () => {

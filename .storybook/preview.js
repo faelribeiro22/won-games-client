@@ -1,6 +1,4 @@
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
+import '../src/styles/globals.css'
 
 export const parameters = {
   backgrounds: {
@@ -8,21 +6,12 @@ export const parameters = {
     values: [
       {
         name: 'won-light',
-        value: theme.colors.white
+        value: '#FAFAFA'
       },
       {
         name: 'won-dark',
-        value: theme.colors.mainBg
+        value: '#06092B'
       }
     ]
   }
 }
-
-export const decorators = [
-  (Story) => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles removeBg />
-      <Story />
-    </ThemeProvider>
-  )
-]

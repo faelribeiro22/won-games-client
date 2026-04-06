@@ -35,12 +35,7 @@ describe('<TextContent />', () => {
       name: /description/i
     }).parentElement
 
-    expect(wrapper).toHaveStyle({
-      color: '#FAFAFA'
-    })
-
-    expect(wrapper).toHaveStyleRule('color', '#030517', {
-      media: '(min-width: 768px)'
-    })
+    expect(wrapper).toHaveClass('text-white')
+    expect(wrapper.className).toContain('md:text-black')
   })
 })

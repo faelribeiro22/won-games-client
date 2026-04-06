@@ -1,33 +1,31 @@
-import styled, { css } from 'styled-components'
-import * as TextFieldStyles from 'components/TextField/styles'
-import * as ButtonStyles from 'components/Button/styles'
-import { darken, lighten } from 'polished'
+import clsx from 'clsx'
 
-export const FormWrapper = styled.div`
-  ${({ theme }) => css`
-    ${TextFieldStyles.Wrapper} {
-      margin: ${theme.spacings.xxsmall} 0;
-    }
-    ${ButtonStyles.Wrapper} {
-      margin: ${theme.spacings.medium} auto ${theme.spacings.xsmall};
-    }
-  `}
-`
+export type FormWrapperProps = {
+  children: React.ReactNode
+  className?: string
+}
 
-export const FormLink = styled.div`
-  ${({ theme }) => css`
-    font-size: ${theme.font.sizes.small};
-    color: ${theme.colors.black};
-    text-align: center;
-    a {
-      color: ${theme.colors.secondary};
-      text-decoration: none;
-      border-bottom: 0.1rem solid ${theme.colors.secondary};
-      transition: color, border, ${theme.transition.fast};
-      &:hover {
-        color: ${darken(0.1, theme.colors.secondary)};
-        border-bottom: 0.1rem solid ${darken(0.1, theme.colors.secondary)};
-      }
-    }
-  `}
-`
+export const FormWrapper = ({ children, className }: FormWrapperProps) => {
+  const classes = clsx(
+    '[&>*]:my-xxsmall [&_button]:mx-auto [&_button]:my-medium [&_button]:mb-xsmall',
+    className
+  )
+
+  return <div className={classes}>{children}</div>
+}
+
+export type FormLinkProps = {
+  children: React.ReactNode
+  className?: string
+}
+
+export const FormLink = ({ children, className }: FormLinkProps) => {
+  const classes = clsx(
+    'text-small text-black text-center',
+    '[&_a]:text-secondary [&_a]:no-underline [&_a]:border-b [&_a]:border-secondary [&_a]:transition-all [&_a]:duration-fast',
+    '[&_a:hover]:text-[#2aa49d] [&_a:hover]:border-[#2aa49d]',
+    className
+  )
+
+  return <div className={classes}>{children}</div>
+}

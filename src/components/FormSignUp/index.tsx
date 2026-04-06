@@ -1,7 +1,7 @@
 import Button from 'components/Button'
 import TextField from 'components/TextField'
 import Link from 'next/link'
-import { AccountCircle, Email, Lock } from 'styled-icons/material-outlined'
+import { MdAccountCircle, MdEmail, MdLock } from 'react-icons/md'
 import { FormWrapper, FormLink } from 'components/Form'
 
 const FormSignUp = () => (
@@ -11,25 +11,25 @@ const FormSignUp = () => (
         name="name"
         placeholder="Name"
         type="name"
-        icon={<AccountCircle />}
+        icon={<MdAccountCircle />}
       />
       <TextField
         name="email"
         placeholder="Email"
         type="email"
-        icon={<Email />}
+        icon={<MdEmail />}
       />
       <TextField
         name="password"
         placeholder="Password"
         type="password"
-        icon={<Lock />}
+        icon={<MdLock />}
       />
       <TextField
         name="confirm-password"
         placeholder="Confirm Password"
         type="password"
-        icon={<Lock />}
+        icon={<MdLock />}
       />
       <Button size="large" fullWidth>
         Sign up now

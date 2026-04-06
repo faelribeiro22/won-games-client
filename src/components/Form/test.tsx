@@ -10,45 +10,16 @@ describe('<Form />', () => {
         </FormLink>
       </FormWrapper>
     )
-    expect(container.parentElement).toMatchInlineSnapshot(`
-      .c0 {
-        font-size: 1.4rem;
-        color: #030517;
-        text-align: center;
-      }
 
-      .c0 a {
-        color: #3CD3C1;
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        border-bottom: 0.1rem solid #3CD3C1;
-        -webkit-transition: color,border,0.1s ease-in-out;
-        transition: color,border,0.1s ease-in-out;
-      }
+    const formWrapper = container.firstChild as HTMLElement
+    expect(formWrapper.className).toContain('[&>*]:my-xxsmall')
+    expect(formWrapper.className).toContain('[&_button]:mx-auto')
 
-      .c0 a:hover {
-        color: #29b3a3;
-        border-bottom: 0.1rem solid #29b3a3;
-      }
-
-      <body>
-        <div>
-          <div
-            class=""
-          >
-            <div
-              class="c0"
-            >
-              My nice 
-              <a
-                href="#"
-              >
-                link
-              </a>
-            </div>
-          </div>
-        </div>
-      </body>
-    `)
+    const formLink = formWrapper.firstChild as HTMLElement
+    expect(formLink).toHaveClass('text-small')
+    expect(formLink).toHaveClass('text-black')
+    expect(formLink).toHaveClass('text-center')
+    expect(formLink.className).toContain('[&_a]:text-secondary')
+    expect(formLink.className).toContain('[&_a]:no-underline')
   })
 })

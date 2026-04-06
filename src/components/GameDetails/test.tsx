@@ -13,7 +13,7 @@ const props: GameDetailsProps = {
 
 describe('<GameDetails />', () => {
   it('should render blocks', () => {
-    const { container } = renderWithTheme(<GameDetails {...props} />)
+    renderWithTheme(<GameDetails {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /release date/i })
@@ -33,9 +33,9 @@ describe('<GameDetails />', () => {
   it('should render platform icons', () => {
     renderWithTheme(<GameDetails {...props} />)
 
-    expect(screen.getByRole('img', { name: /linux/i })).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: /windows/i })).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: /mac/i })).toBeInTheDocument()
+    expect(screen.getByTitle(/linux/i)).toBeInTheDocument()
+    expect(screen.getByTitle(/windows/i)).toBeInTheDocument()
+    expect(screen.getByTitle(/mac/i)).toBeInTheDocument()
   })
 
   it('should render free rating when BR0', () => {

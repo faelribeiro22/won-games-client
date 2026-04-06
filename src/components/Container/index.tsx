@@ -1,12 +1,12 @@
-import styled, { css } from 'styled-components'
+import clsx from 'clsx'
 
-export const Container = styled.div`
-  ${({ theme }) => css`
-    width: 100%;
-    max-width: ${theme.grid.container};
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: calc(${theme.grid.gutter} / 2);
-    padding-right: calc(${theme.grid.gutter} / 2);
-  `}
-`
+export type ContainerProps = {
+  children: React.ReactNode
+  className?: string
+}
+
+export const Container = ({ children, className }: ContainerProps) => {
+  const classes = clsx('w-full max-w-container mx-auto px-xsmall', className)
+
+  return <div className={classes}>{children}</div>
+}

@@ -1,11 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
-import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
-import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
-import { Close } from '@styled-icons/material-outlined/Close'
+import { MdArrowBackIos, MdArrowForwardIos, MdClose } from 'react-icons/md'
 import SlickSlider from 'react-slick'
+import clsx from 'clsx'
 
 import Slider, { SliderSettings } from 'components/Slider'
-import * as S from './styles'
 
 export type GalleryImageProps = {
   src: string
@@ -14,14 +12,15 @@ export type GalleryImageProps = {
 
 export type GalleryProps = {
   items: GalleryImageProps[]
+  className?: string
 }
 
 const commonSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
   arrows: true,
-  nextArrow: <ArrowRight aria-label="next image" />,
-  prevArrow: <ArrowLeft aria-label="previous image" />
+  nextArrow: <MdArrowForwardIos aria-label="next image" />,
+  prevArrow: <MdArrowBackIos aria-label="previous image" />
 }
 
 const settings: SliderSettings = {
@@ -60,21 +59,41 @@ const modalSettings: SliderSettings = {
   slidesToShow: 1
 }
 
-const Gallery = ({ items }: GalleryProps) => {
+const Gallery = ({ items, className }: GalleryProps) => {
   const slider = useRef<SlickSlider>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyUp = ({ key }: KeyboardEvent) => {
-      key === 'Escape' && setIsOpen(false)
+      if (key === 'Escape') {
+        setIsOpen(false)
+      }
     }
 
     window.addEventListener('keyup', handleKeyUp)
     return () => window.removeEventListener('keyup', handleKeyUp)
   }, [])
 
+  const wrapperClasses = clsx(
+    '[&_.slick-prev]:block [&_.slick-prev]:text-white [&_.slick-prev]:cursor-pointer [&_.slick-prev]:absolute [&_.slick-prev]:top-1/2 [&_.slick-prev]:w-[2.5rem] [&_.slick-prev]:h-[2.5rem] [&_.slick-prev]:p-0 [&_.slick-prev]:translate-y-[-50%] [&_.slick-prev]:left-[-5.6rem]',
+    '[&_.slick-next]:block [&_.slick-next]:text-white [&_.slick-next]:cursor-pointer [&_.slick-next]:absolute [&_.slick-next]:top-1/2 [&_.slick-next]:w-[2.5rem] [&_.slick-next]:h-[2.5rem] [&_.slick-next]:p-0 [&_.slick-next]:translate-y-[-50%] [&_.slick-next]:right-[-5.6rem]',
+    '[&_.slick-prev.slick-disabled]:invisible [&_.slick-next.slick-disabled]:invisible',
+    '[&_.slick-slide>div]:mx-xsmall [&_.slick-slide>div]:cursor-pointer',
+    '[&_.slick-list]:mx-[-1.6rem]',
+    'xl:overflow-x-hidden',
+    className
+  )
+
+  const modalClasses = clsx(
+    'fixed w-full h-full top-0 left-0 bg-black/70 flex justify-center items-center z-modal transition-opacity duration-default',
+    {
+      'opacity-100': isOpen,
+      'opacity-0 pointer-events-none': !isOpen
+    }
+  )
+
   return (
-    <S.Wrapper>
+    <div className={wrapperClasses}>
       <Slider ref={slider} settings={settings}>
         {items.map((item, index) => (
           <img
@@ -90,23 +109,24 @@ const Gallery = ({ items }: GalleryProps) => {
         ))}
       </Slider>
 
-      <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
-        <S.Close
+      <div className={modalClasses} aria-label="modal" aria-hidden={!isOpen}>
+        <div
           role="button"
           aria-label="close modal"
           onClick={() => setIsOpen(false)}
+          className="text-white absolute left-0 top-0 cursor-pointer w-full h-full text-right"
         >
-          <Close size={40} />
-        </S.Close>
-        <S.Content>
+          <MdClose size={40} />
+        </div>
+        <div className="max-w-[min(120rem,100%)] max-h-[80rem]">
           <Slider ref={slider} settings={modalSettings}>
             {items.map((item, index) => (
               <img key={`gallery-${index}`} src={item.src} alt={item.label} />
             ))}
           </Slider>
-        </S.Content>
-      </S.Modal>
-    </S.Wrapper>
+        </div>
+      </div>
+    </div>
   )
 }
 

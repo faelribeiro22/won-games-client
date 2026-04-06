@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
-import { Email } from 'styled-icons/material-outlined'
+import { Story, Meta } from '@storybook/react'
+import { MdEmail } from 'react-icons/md'
 import TextField, { TextFieldProps } from '.'
 
 export default {
@@ -38,7 +38,7 @@ export const withError: Story = (args) => (
 
 withIcon.args = {
   size: 'small',
-  icon: <Email />
+  icon: <MdEmail />
 }
 
 withError.args = {

@@ -1,6 +1,5 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
-import 'jest-styled-components'
 
 import Logo from '.'
 
@@ -13,31 +12,27 @@ describe('<Logo />', () => {
 
   it('should render a white label by default', () => {
     renderWithTheme(<Logo />)
-    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      color: '#FAFAFA'
-    })
+    const logoContainer = screen.getByLabelText(/Won Games/i).parentElement
+    expect(logoContainer).toHaveClass('text-white')
   })
 
   it('should render a black label when color is passed', () => {
     renderWithTheme(<Logo color="black" />)
-    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      color: '#030517'
-    })
+    const logoContainer = screen.getByLabelText(/Won Games/i).parentElement
+    expect(logoContainer).toHaveClass('text-black')
   })
 
   it('should render a big logo', () => {
     renderWithTheme(<Logo size="large" />)
-    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
-      width: '20rem'
-    })
+    const logoContainer = screen.getByLabelText(/Won Games/i).parentElement
+    expect(logoContainer).toHaveClass('w-[20rem]')
+    expect(logoContainer).toHaveClass('h-[5.9rem]')
   })
 
   it('should render a big logo without text if hideOnMobile', () => {
     renderWithTheme(<Logo hideOnMobile />)
-    expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
-      'width',
-      '5.8rem',
-      { media: '(max-width: 768px)' }
-    )
+    const logoContainer = screen.getByLabelText(/Won Games/i).parentElement
+    expect(logoContainer?.className).toContain('md:w-[5.8rem]')
+    expect(logoContainer?.className).toContain('[&_.text]:md:hidden')
   })
 })

@@ -1,10 +1,12 @@
-import styled, { css } from 'styled-components'
+import clsx from 'clsx'
 
-export const Grid = styled.div`
-  ${({ theme }) => css`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    grid-gap: ${theme.spacings.medium};
-    margin: ${theme.spacings.medium} 0;
-  `}
-`
+export type GridProps = {
+  children: React.ReactNode
+  className?: string
+}
+
+export const Grid = ({ children, className }: GridProps) => {
+  const classes = clsx('grid grid-cols-main gap-medium my-medium', className)
+
+  return <div className={classes}>{children}</div>
+}

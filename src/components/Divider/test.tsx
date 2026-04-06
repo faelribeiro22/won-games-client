@@ -4,24 +4,13 @@ import { Divider } from '.'
 describe('<Divider />', () => {
   it('should render correctly', () => {
     const { container } = renderWithTheme(<Divider />)
+    const divider = container.firstChild as HTMLElement
 
-    expect(container.firstChild).toMatchInlineSnapshot(`
-      .c0 {
-        margin: 5.6rem auto 3.2rem;
-        height: 0.1rem;
-        background: rgba(181,181,181,0.3);
-        border: 0;
-      }
-
-      @media (min-width:768px) {
-        .c0 {
-          margin: calc(5.6rem * 2.5) auto 5.6rem;
-        }
-      }
-
-      <hr
-        class="c0"
-      />
-    `)
+    expect(divider).toHaveClass('my-xxlarge')
+    expect(divider).toHaveClass('mx-auto')
+    expect(divider.className).toContain('h-[0.1rem]')
+    expect(divider.className).toContain('bg-[rgba(181,181,181,0.3)]')
+    expect(divider).toHaveClass('border-0')
+    expect(divider).toHaveClass('md:my-[14rem]')
   })
 })

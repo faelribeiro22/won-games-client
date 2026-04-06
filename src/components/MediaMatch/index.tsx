@@ -1,27 +1,43 @@
-import styled, { css } from 'styled-components'
-import media, { DefaultBreakpoints } from 'styled-media-query'
-
-type breakpoint = keyof DefaultBreakpoints
+import clsx from 'clsx'
 
 export type MediaMatchProps = {
-  lessThan?: breakpoint
-  greaterThan?: breakpoint
+  lessThan?: 'small' | 'medium' | 'large' | 'huge'
+  greaterThan?: 'small' | 'medium' | 'large' | 'huge'
+  children: React.ReactNode
+  className?: string
 }
 
-const mediaMatchModifiers = {
-  lessThan: (size: breakpoint) => css`
-    ${media.lessThan(size)` display: block`}
-  `,
-  greaterThan: (size: breakpoint) => css`
-    ${media.greaterThan(size)` display: block`}
-  `
+const MediaMatch = ({
+  lessThan,
+  greaterThan,
+  children,
+  className
+}: MediaMatchProps) => {
+  const breakpointClasses = {
+    lessThan: {
+      small: 'block sm:hidden',
+      medium: 'block md:hidden',
+      large: 'block lg:hidden',
+      huge: 'block xl:hidden'
+    },
+    greaterThan: {
+      small: 'hidden sm:block',
+      medium: 'hidden md:block',
+      large: 'hidden lg:block',
+      huge: 'hidden xl:block'
+    }
+  }
+
+  const classes = clsx(
+    'hidden',
+    {
+      [breakpointClasses.lessThan[lessThan!]]: !!lessThan,
+      [breakpointClasses.greaterThan[greaterThan!]]: !!greaterThan
+    },
+    className
+  )
+
+  return <div className={classes}>{children}</div>
 }
 
-export default styled.div<MediaMatchProps>`
-  ${({ lessThan, greaterThan }) => css`
-    display: none;
-
-    ${!!lessThan && mediaMatchModifiers.lessThan(lessThan)}
-    ${!!greaterThan && mediaMatchModifiers.greaterThan(greaterThan)}
-  `}
-`
+export default MediaMatch

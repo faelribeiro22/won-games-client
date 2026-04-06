@@ -1,54 +1,94 @@
 import { useState } from 'react'
-import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
-import { Menu2 as MenuIcon } from '@styled-icons/remix-line/Menu2'
-import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
-import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
+import clsx from 'clsx'
+import { MdShoppingCart, MdMenu, MdSearch, MdClose } from 'react-icons/md'
 
 import Logo from 'components/Logo'
-import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import Link from 'next/link'
 
 export type MenuProps = {
   username?: string
+  className?: string
 }
 
-const Menu = ({ username }: MenuProps) => {
+const Menu = ({ username, className }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const wrapperClasses = clsx(
+    'flex items-center py-small relative z-menu',
+    className
+  )
+
+  const iconWrapperClasses = 'text-white cursor-pointer w-[2.4rem] h-[2.4rem]'
+
+  const menuFullClasses = clsx(
+    'flex flex-col justify-between bg-white fixed z-menu top-0 bottom-0 left-0 right-0 h-screen overflow-hidden transition-opacity duration-default',
+    {
+      'opacity-100 pointer-events-auto visible': isOpen,
+      'opacity-0 pointer-events-none invisible': !isOpen
+    }
+  )
+
+  const menuNavClasses = 'md:ml-small'
+
+  const menuLinkClasses = clsx(
+    'relative text-white text-medium mx-small mt-[0.3rem] no-underline text-center',
+    'hover:after:content-[""] hover:after:absolute hover:after:block hover:after:h-[0.3rem] hover:after:bg-primary hover:after:animate-[hoverAnimation_0.2s_forwards]'
+  )
+
+  const menuLinkFullClasses = (isOpen: boolean) =>
+    clsx(
+      'text-black font-bold text-xlarge mb-small transition-transform duration-default',
+      {
+        'translate-y-0': isOpen,
+        'translate-y-[3rem]': !isOpen
+      }
+    )
+
+  const registerBoxClasses = (isOpen: boolean) =>
+    clsx(
+      'flex flex-col items-center px-xlarge pb-xlarge transition-transform duration-default',
+      {
+        'translate-y-0': isOpen,
+        'translate-y-[3rem]': !isOpen
+      }
+    )
+
   return (
-    <S.Wrapper>
+    <menu className={wrapperClasses}>
       <MediaMatch lessThan="medium">
-        <S.IconWrapper onClick={() => setIsOpen(true)}>
-          <MenuIcon aria-label="Open Menu" />
-        </S.IconWrapper>
+        <div className={iconWrapperClasses} onClick={() => setIsOpen(true)}>
+          <MdMenu aria-label="Open Menu" />
+        </div>
       </MediaMatch>
 
-      <S.LogoWrapper>
+      <div className="md:static md:left-auto md:transform-none absolute left-1/2 -translate-x-1/2">
         <Link href="/" passHref>
           <a>
             <Logo hideOnMobile aria-label="Logo" />
           </a>
         </Link>
-      </S.LogoWrapper>
+      </div>
 
       <MediaMatch greaterThan="medium">
-        <S.MenuNav>
+        <div className={menuNavClasses}>
           <Link href="/" passHref>
-            <S.MenuLink href="#">Home</S.MenuLink>
+            <a className={menuLinkClasses}>Home</a>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
-        </S.MenuNav>
+          <a href="#" className={menuLinkClasses}>
+            Explore
+          </a>
+        </div>
       </MediaMatch>
 
-      <S.MenuGroup>
-        <S.IconWrapper>
-          <SearchIcon aria-label="search" />
-        </S.IconWrapper>
-        <S.IconWrapper>
-          <ShoppingCartIcon aria-label="open shopping cart" />
-        </S.IconWrapper>
+      <div className="flex flex-grow justify-end items-center [&>div]:ml-xsmall">
+        <div className={iconWrapperClasses}>
+          <MdSearch aria-label="search" />
+        </div>
+        <div className={iconWrapperClasses}>
+          <MdShoppingCart aria-label="open shopping cart" />
+        </div>
         {!username && (
           <MediaMatch greaterThan="medium">
             <Link href="/sign-in" passHref>
@@ -56,37 +96,52 @@ const Menu = ({ username }: MenuProps) => {
             </Link>
           </MediaMatch>
         )}
-      </S.MenuGroup>
+      </div>
 
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
-        <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
-        <S.MenuNav>
+      <nav className={menuFullClasses} aria-hidden={!isOpen}>
+        <MdClose
+          aria-label="Close Menu"
+          onClick={() => setIsOpen(false)}
+          className="absolute top-0 right-0 m-xxsmall cursor-pointer w-[2.4rem] h-[2.4rem]"
+        />
+        <div className="flex items-center justify-center flex-1 flex-col">
           <Link href="/" passHref>
-            <S.MenuLink href="#">Home</S.MenuLink>
+            <a className={menuLinkFullClasses(isOpen)}>Home</a>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <a href="#" className={menuLinkFullClasses(isOpen)}>
+            Explore
+          </a>
           {!!username && (
             <>
-              <S.MenuLink href="#">My account</S.MenuLink>
-              <S.MenuLink href="#">Wishlist</S.MenuLink>
+              <a href="#" className={menuLinkFullClasses(isOpen)}>
+                My account
+              </a>
+              <a href="#" className={menuLinkFullClasses(isOpen)}>
+                Wishlist
+              </a>
             </>
           )}
-        </S.MenuNav>
+        </div>
         {!username && (
-          <S.RegisterBox>
+          <div className={registerBoxClasses(isOpen)}>
             <Link href="/sign-in" passHref>
               <Button fullWidth size="large" as="a">
                 Sign in
               </Button>
             </Link>
-            <span>or</span>
+            <span className="block my-xxsmall text-xsmall">or</span>
             <Link href="/sign-up" passHref>
-              <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>
+              <a
+                title="Sign Up"
+                className="no-underline text-primary border-b-2 border-primary"
+              >
+                Sign Up
+              </a>
             </Link>
-          </S.RegisterBox>
+          </div>
         )}
-      </S.MenuFull>
-    </S.Wrapper>
+      </nav>
+    </menu>
   )
 }
 

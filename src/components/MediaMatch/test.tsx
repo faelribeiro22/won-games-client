@@ -22,17 +22,13 @@ describe('<MediaMatch />', () => {
   })
 
   it('should be hidden if no media query is passed', () => {
-    expect(desktopHeading.parentElement).toHaveStyleRule('display', 'none')
-    expect(mobileHeading.parentElement).toHaveStyleRule('display', 'none')
+    expect(desktopHeading.parentElement).toHaveClass('hidden')
+    expect(mobileHeading.parentElement).toHaveClass('hidden')
   })
 
   it('should show or hide based on the media passed', () => {
-    expect(desktopHeading.parentElement).toHaveStyleRule('display', 'block', {
-      media: '(min-width: 768px)'
-    })
-
-    expect(mobileHeading.parentElement).toHaveStyleRule('display', 'block', {
-      media: '(max-width: 768px)'
-    })
+    expect(desktopHeading.parentElement).toHaveClass('md:block')
+    expect(mobileHeading.parentElement).toHaveClass('block')
+    expect(mobileHeading.parentElement).toHaveClass('md:hidden')
   })
 })

@@ -1,6 +1,5 @@
-import { Story, Meta } from '@storybook/react/types-6-0'
+import { Story, Meta } from '@storybook/react'
 import { Settings } from 'react-slick'
-import styled from 'styled-components'
 import Slider from '.'
 
 export default {
@@ -16,14 +15,11 @@ const settings: Settings = {
   slidesToScroll: 1
 }
 
-const Slide = styled.div`
-  background: gray;
-  width: 30rem;
-  padding: 10rem 0;
-  border: 0.1rem solid red;
-  color: white;
-  text-align: center;
-`
+const Slide = ({ children }: { children: React.ReactNode }) => (
+  <div className="bg-gray-500 w-[30rem] py-40 border border-red-500 text-white text-center">
+    {children}
+  </div>
+)
 
 export const Horizontal: Story = () => (
   <Slider settings={settings}>

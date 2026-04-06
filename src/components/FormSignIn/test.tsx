@@ -25,6 +25,6 @@ describe('<FormSignIn />', () => {
   it('should render the text to sign up', () => {
     renderWithTheme(<FormSignIn />)
     expect(screen.getByRole('link', { name: /sign up/i })).toBeInTheDocument()
-    expect(screen.getByText(/don’t have an account\?/i)).toBeInTheDocument()
+    expect(screen.getByText(/Don't have an account?/)).toBeInTheDocument()
   })
 })

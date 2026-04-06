@@ -1,5 +1,4 @@
 import { fireEvent, screen } from '@testing-library/react'
-import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
 import GameCard from '.'
 
@@ -35,18 +34,14 @@ describe('<GameCard />', () => {
 
     const price = screen.getByText('R$ 235,00')
     expect(price).not.toHaveStyle({ textDecoration: 'line-through' })
-    expect(price).toHaveStyle({ backgroundColor: theme.colors.secondary })
+    expect(price).toHaveClass('bg-secondary')
   })
 
   it('should render a line-through in price when promotional', () => {
     renderWithTheme(<GameCard {...props} promotionalPrice="R$ 15,00" />)
     expect(screen.getByText('R$ 15,00')).toBeInTheDocument()
-    expect(screen.getByText(/235,00/)).toHaveStyle({
-      textDecoration: 'line-through'
-    })
-    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
-      textDecoration: 'line-through'
-    })
+    expect(screen.getByText(/235,00/)).toHaveClass('line-through')
+    expect(screen.getByText('R$ 15,00')).not.toHaveClass('line-through')
   })
 
   it('should render a filled Favorite icon when favorite is true', () => {
@@ -62,14 +57,12 @@ describe('<GameCard />', () => {
     expect(screen.getByLabelText(/remove from wishlist/i)).toBeInTheDocument()
   })
 
-  it('should render a filled Favorite icon when favorite is true', () => {
-    renderWithTheme(<GameCard {...props} favorite ribbon="50%" />)
+  it('should render ribbon when ribbon prop is passed', () => {
+    renderWithTheme(<GameCard {...props} ribbon="50%" />)
     const ribbon = screen.getByText(/50%/)
     expect(ribbon).toBeInTheDocument()
-    expect(ribbon).toHaveStyle({ backgroundColor: '#F231A5' })
-    expect(ribbon).toHaveStyle({
-      height: '2.6rem',
-      fontSize: '1.2rem'
-    })
+    expect(ribbon).toHaveClass('bg-primary')
+    expect(ribbon).toHaveClass('h-[2.6rem]')
+    expect(ribbon).toHaveClass('text-xsmall')
   })
 })

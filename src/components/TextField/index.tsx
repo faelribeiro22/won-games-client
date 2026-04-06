@@ -1,5 +1,5 @@
 import { useState, InputHTMLAttributes } from 'react'
-import * as S from './styles'
+import clsx from 'clsx'
 
 export type TextFieldProps = {
   icon?: JSX.Element
@@ -10,6 +10,7 @@ export type TextFieldProps = {
   iconPosition?: 'left' | 'right'
   disabled?: boolean
   error?: string
+  className?: string
 } & InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
@@ -21,6 +22,7 @@ const TextField = ({
   onInput,
   disabled = false,
   error = '',
+  className,
   ...props
 }: TextFieldProps) => {
   const [value, setValue] = useState(initialValue)
@@ -29,25 +31,64 @@ const TextField = ({
     const newValue = e.currentTarget.value
     setValue(newValue)
 
-    !!onInput && onInput(newValue)
+    if (onInput) {
+      onInput(newValue)
+    }
   }
 
+  const wrapperClasses = clsx(className)
+
+  const labelClasses = clsx('text-small cursor-pointer', {
+    'text-black': !error && !disabled,
+    'text-red': error,
+    'text-gray cursor-not-allowed': disabled
+  })
+
+  const inputWrapperClasses = clsx(
+    'flex bg-light-gray rounded-[0.2rem] px-xsmall border-2',
+    'focus-within:shadow-[0_0_0.5rem_#F231A5]',
+    {
+      'border-light-gray': !error,
+      'border-red': error
+    }
+  )
+
+  const inputClasses = clsx(
+    'text-black font-sans text-medium py-xxsmall bg-transparent border-0 outline-none w-full',
+    {
+      'pl-xsmall': iconPosition === 'left' && icon,
+      'pr-xsmall': iconPosition === 'right' && icon,
+      'cursor-not-allowed text-gray placeholder:text-gray': disabled
+    }
+  )
+
+  const iconClasses = clsx('flex w-[2.2rem] text-gray [&>svg]:w-full', {
+    'order-1': iconPosition === 'right',
+    'order-0': iconPosition === 'left',
+    'cursor-not-allowed': disabled,
+    'text-red': error
+  })
+
   return (
-    <S.Wrapper disabled={disabled} error={!!error}>
-      {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
-      <S.InputWrapper>
-        {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
-        <S.Input
+    <div className={wrapperClasses}>
+      {!!label && (
+        <label htmlFor={labelFor} className={labelClasses}>
+          {label}
+        </label>
+      )}
+      <div className={inputWrapperClasses}>
+        {!!icon && <div className={iconClasses}>{icon}</div>}
+        <input
           type="text"
-          iconPosition={iconPosition}
           onChange={onChange}
           value={value}
           disabled={disabled}
+          className={inputClasses}
           {...props}
         />
-      </S.InputWrapper>
-      {!!error && <S.Error>{error}</S.Error>}
-    </S.Wrapper>
+      </div>
+      {!!error && <div className="text-red text-small">{error}</div>}
+    </div>
   )
 }
 

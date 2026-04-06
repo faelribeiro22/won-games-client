@@ -1,78 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> should render the heading 1`] = `
-.c5 {
-  color: #030517;
-  position: relative;
-  margin-bottom: 3.2rem;
-  font-size: 1.6rem;
-}
-
-.c5::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -1rem;
-  width: 5rem;
-  border-bottom: 0.5rem solid #3CD3C1;
-}
-
-.c5::after {
-  width: 3rem;
-}
-
-.c1 {
-  color: #030517;
-  width: 11rem;
-  height: 3.3rem;
-}
-
-.c0 .c4 {
-  text-transform: uppercase;
-}
-
-.c2 {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 3.2rem;
-  margin-top: 3.2rem;
-}
-
-.c3 a,
-.c3 span {
-  display: block;
-  color: #8F8F8F;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-}
-
-.c3 a:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c6 {
-  color: #8F8F8F;
-  font-size: 1.2rem;
-  margin-top: 4.0rem;
-  margin-bottom: 3.2rem;
-  text-align: center;
-}
-
-@media (min-width:768px) {
-  .c2 {
-    grid-template-columns: repeat(4,1fr);
-  }
-}
-
 <footer
-  class="c0"
+  class="[&_h2]:uppercase"
 >
   <div
-    class="c1"
-    color="black"
+    class="text-black w-[11rem] h-[3.3rem]"
   >
     <svg
       aria-label="Won Games"
@@ -157,14 +90,13 @@ exports[`<Footer /> should render the heading 1`] = `
     </svg>
   </div>
   <div
-    class="c2"
+    class="grid grid-cols-2 gap-[3.2rem] mt-medium md:grid-cols-4"
   >
     <div
-      class="c3"
+      class="[&_a]:block [&_a]:text-gray [&_a]:no-underline [&_a]:mb-xxsmall [&_a]:text-small [&_a:hover]:underline [&_span]:block [&_span]:text-gray [&_span]:mb-xxsmall [&_span]:text-small"
     >
       <h2
-        class="c4 c5"
-        color="black"
+        class="text-black text-medium after:w-12 relative mb-medium after:content-[""] after:absolute after:left-0 after:bottom-[-1rem] after:w-20 after:border-b-[0.5rem] after:border-b-secondary"
       >
         Contact
       </h2>
@@ -175,11 +107,10 @@ exports[`<Footer /> should render the heading 1`] = `
       </a>
     </div>
     <div
-      class="c3"
+      class="[&_a]:block [&_a]:text-gray [&_a]:no-underline [&_a]:mb-xxsmall [&_a]:text-small [&_a:hover]:underline [&_span]:block [&_span]:text-gray [&_span]:mb-xxsmall [&_span]:text-small"
     >
       <h2
-        class="c4 c5"
-        color="black"
+        class="text-black text-medium after:w-12 relative mb-medium after:content-[""] after:absolute after:left-0 after:bottom-[-1rem] after:w-20 after:border-b-[0.5rem] after:border-b-secondary"
       >
         Follow us
       </h2>
@@ -217,11 +148,10 @@ exports[`<Footer /> should render the heading 1`] = `
       </nav>
     </div>
     <div
-      class="c3"
+      class="[&_a]:block [&_a]:text-gray [&_a]:no-underline [&_a]:mb-xxsmall [&_a]:text-small [&_a:hover]:underline [&_span]:block [&_span]:text-gray [&_span]:mb-xxsmall [&_span]:text-small"
     >
       <h2
-        class="c4 c5"
-        color="black"
+        class="text-black text-medium after:w-12 relative mb-medium after:content-[""] after:absolute after:left-0 after:bottom-[-1rem] after:w-20 after:border-b-[0.5rem] after:border-b-secondary"
       >
         Links
       </h2>
@@ -231,27 +161,32 @@ exports[`<Footer /> should render the heading 1`] = `
         <a
           href="/"
         >
-          Home
+          <a>
+            Home
+          </a>
         </a>
         <a
           href="/games"
         >
-          Store
+          <a>
+            Store
+          </a>
         </a>
         <a
           href="/search"
         >
-          Buscar
+          <a>
+            Buscar
+          </a>
         </a>
       </nav>
     </div>
     <div
       aria-labelledby="footer-contact"
-      class="c3"
+      class="[&_a]:block [&_a]:text-gray [&_a]:no-underline [&_a]:mb-xxsmall [&_a]:text-small [&_a:hover]:underline [&_span]:block [&_span]:text-gray [&_span]:mb-xxsmall [&_span]:text-small"
     >
       <h2
-        class="c4 c5"
-        color="black"
+        class="text-black text-medium after:w-12 relative mb-medium after:content-[""] after:absolute after:left-0 after:bottom-[-1rem] after:w-20 after:border-b-[0.5rem] after:border-b-secondary"
       >
         Location
       </h2>
@@ -267,7 +202,7 @@ exports[`<Footer /> should render the heading 1`] = `
     </div>
   </div>
   <div
-    class="c6"
+    class="text-gray text-xsmall mt-large mb-medium text-center"
   >
     Won Games 2020 © All rights reserved.
   </div>

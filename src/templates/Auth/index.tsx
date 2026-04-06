@@ -1,7 +1,6 @@
 import Heading from 'components/Heading'
 import Logo from 'components/Logo'
 import Link from 'next/link'
-import * as S from './styles'
 
 type AuthProps = {
   title: string
@@ -9,26 +8,36 @@ type AuthProps = {
 }
 
 const Auth = ({ children, title }: AuthProps) => (
-  <S.Wrapper>
-    <S.BannerBlock>
-      <S.BannerContent>
+  <main className="grid grid-cols-1 md:grid-cols-2 h-screen">
+    {/* Banner Block */}
+    <div
+      className="hidden md:block relative bg-cover bg-center p-xxlarge pb-large"
+      style={{ backgroundImage: 'url(/img/auth-bg.jpg)' }}
+    >
+      <div className="absolute top-0 bottom-0 left-0 right-0 bg-black opacity-85"></div>
+
+      <div className="relative z-base text-white grid grid-cols-1 justify-between h-full">
         <Link href="/">
-          <a>
+          <a className="w-fit h-fit">
             <Logo id="banner" />
           </a>
         </Link>
         <div>
           <Heading size="huge">All your favorite games in one place</Heading>
-          <S.Subtitle>
-            <strong>WON</strong> in the best and most complete gaming platform.
-          </S.Subtitle>
+          <h3 className="text-xxlarge font-light mt-xxsmall">
+            <strong className="text-primary">WON</strong> in the best and most
+            complete gaming platform.
+          </h3>
         </div>
-        <S.Footer>Won Games 2020 © Todos os Direitos Reservados</S.Footer>
-      </S.BannerContent>
-    </S.BannerBlock>
+        <p className="self-end text-xsmall text-center">
+          Won Games 2020 © Todos os Direitos Reservados
+        </p>
+      </div>
+    </div>
 
-    <S.Content>
-      <S.ContentWrapper>
+    {/* Content */}
+    <div className="bg-white grid items-center justify-center">
+      <div className="w-[30rem] md:w-[36rem] [&>div:first-child]:mx-auto [&>div:first-child]:mb-xxlarge [&>h2]:mb-medium">
         <Link href="/">
           <a>
             <Logo color="black" size="large" id="content" />
@@ -39,9 +48,9 @@ const Auth = ({ children, title }: AuthProps) => (
         </Heading>
 
         {children}
-      </S.ContentWrapper>
-    </S.Content>
-  </S.Wrapper>
+      </div>
+    </div>
+  </main>
 )
 
 export default Auth
