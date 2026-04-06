@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-import { mergeConfig } from 'vite'
+import { mergeConfig, defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
@@ -23,6 +23,9 @@ const config: StorybookConfig = {
           styles: path.resolve(__dirname, '../src/styles'),
           utils: path.resolve(__dirname, '../src/utils')
         }
+      },
+      define: {
+        'process.env': {}
       }
     })
   }
