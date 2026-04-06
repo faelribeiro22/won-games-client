@@ -1,15 +1,18 @@
-import { Story, Meta } from '@storybook/react'
-import Highlight, { HighlightProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import Highlight from '.'
 import item from './mock'
 
-export default {
+const meta = {
   title: 'Highlight',
   component: Highlight,
   args: { ...item }
-} as Meta
+} satisfies Meta<typeof Highlight>
 
-export const Basic: Story<HighlightProps> = (args) => <Highlight {...args} />
+export default meta
+type Story = StoryObj<typeof Highlight>
 
-export const WithFloatImage: Story<HighlightProps> = (args) => (
-  <Highlight {...args} floatImage="img/red-dead-float.png" />
-)
+export const Basic: Story = {}
+
+export const WithFloatImage: Story = {
+  render: (args) => <Highlight {...args} floatImage="img/red-dead-float.png" />
+}

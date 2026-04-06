@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import Empty, { EmptyProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import Empty from '.'
 
-export default {
+const meta = {
   title: 'Empty',
   component: Empty,
   parameters: {
@@ -9,12 +9,15 @@ export default {
       default: 'won-dark'
     }
   }
-} as Meta
+} satisfies Meta<typeof Empty>
 
-export const Default: Story<EmptyProps> = (args) => <Empty {...args} />
+export default meta
+type Story = StoryObj<typeof Empty>
 
-Default.args = {
-  title: 'Your wishlist is empty',
-  description: 'Games added to your wishlist will appear here',
-  hasLink: true
+export const Default: Story = {
+  args: {
+    title: 'Your wishlist is empty',
+    description: 'Games added to your wishlist will appear here',
+    hasLink: true
+  }
 }

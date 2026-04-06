@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import Heading, { HeadingProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import Heading from '.'
 
-export default {
+const meta = {
   title: 'Heading',
   component: Heading,
   argTypes: {
@@ -9,10 +9,13 @@ export default {
       type: 'string'
     }
   }
-} as Meta
+} satisfies Meta<typeof Heading>
 
-export const Basic: Story<HeadingProps> = (args) => <Heading {...args} />
+export default meta
+type Story = StoryObj<typeof Heading>
 
-Basic.args = {
-  children: 'Most Populars'
+export const Basic: Story = {
+  args: {
+    children: 'Most Populars'
+  }
 }

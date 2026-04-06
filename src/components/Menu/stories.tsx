@@ -1,16 +1,19 @@
-import { Story, Meta } from '@storybook/react'
-import Menu, { MenuProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import Menu from '.'
 
-export default {
+const meta = {
   title: 'Menu',
   component: Menu
-} as Meta
+} satisfies Meta<typeof Menu>
 
-export const Basic: Story<MenuProps> = (args) => <Menu {...args} />
+export default meta
+type Story = StoryObj<typeof Menu>
 
-Basic.parameters = {
-  layout: 'fullscreen',
-  backgrounds: {
-    default: 'won-dark'
+export const Basic: Story = {
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'won-dark'
+    }
   }
 }

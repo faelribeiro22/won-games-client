@@ -119,6 +119,7 @@ expect(element).toHaveClass('hidden')
 - `polished`
 - `@styled-icons/material-outlined`
 - `@styled-icons/fa-brands`
+- `@storybook/nextjs` (substituído por `@storybook/react-vite`)
 
 ## 📦 Dependências Adicionadas
 - `tailwindcss`
@@ -126,6 +127,9 @@ expect(element).toHaveClass('hidden')
 - `autoprefixer`
 - `clsx`
 - `react-icons`
+- `@storybook/react-vite` (substituiu `@storybook/nextjs`)
+- `vite`
+- `@vitejs/plugin-react`
 
 ## 🎨 Tailwind Config
 Todas as cores, espaçamentos, fontes e breakpoints do tema original foram preservados no `tailwind.config.js`:
@@ -150,9 +154,10 @@ Todas as cores, espaçamentos, fontes e breakpoints do tema original foram prese
 - **9 snapshots** atualizados e passando
 - Todos os testes foram migrados de `toHaveStyle`/`toHaveStyleRule` para verificações de classes CSS
 
-## ⚠️ Problemas Conhecidos
-- **Build**: Erro pré-existente no Storybook (importação de `Story` ao invés de `StoryFn`). Este erro existia antes da migração e não está relacionado ao Tailwind.
-- **Solução temporária**: Os arquivos `*.stories.tsx` e `*.test.tsx` foram adicionados ao exclude do tsconfig.json para não bloquear o desenvolvimento.
+## ⚠️ Problemas Conhecidos e Resolvidos
+- ~~**Build**: Erro pré-existente no Storybook~~ ✅ **RESOLVIDO**
+- **Solução**: Migrado do `@storybook/nextjs` (incompatível com Next.js 15) para `@storybook/react-vite`
+- O Storybook agora usa Vite ao invés de Webpack, resultando em builds mais rápidos
 
 ## 📝 Notas de Migração
 1. Todos os componentes mantêm a mesma API pública
@@ -164,6 +169,12 @@ Todas as cores, espaçamentos, fontes e breakpoints do tema original foram prese
 ## 🚀 Próximos Passos Sugeridos
 1. ✅ ~~Rodar testes para verificar se nada quebrou~~
 2. ✅ ~~Atualizar testes para remover `jest-styled-components`~~
-3. ⚠️ Corrigir importações do Storybook (`Story` → `StoryFn`)
+3. ✅ ~~Corrigir build do Storybook (migrado para Vite)~~
 4. ✅ ~~Remover dependências não utilizadas do package.json~~
 5. ✅ ~~Verificar lint e corrigir problemas~~
+
+## 🎉 Migração Concluída!
+- **Todos os testes passando**: 31 suites, 102 testes
+- **Storybook funcionando**: Build e dev mode operacionais com Vite
+- **Bundle reduzido**: Removido styled-components e suas dependências
+- **Performance melhorada**: CSS estático ao invés de CSS-in-JS runtime

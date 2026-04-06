@@ -1,11 +1,14 @@
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Settings } from 'react-slick'
 import Slider from '.'
 
-export default {
+const meta = {
   title: 'Slider',
   component: Slider
-} as Meta
+} satisfies Meta<typeof Slider>
+
+export default meta
+type Story = StoryObj<typeof Slider>
 
 const settings: Settings = {
   dots: true,
@@ -21,14 +24,16 @@ const Slide = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-export const Horizontal: Story = () => (
-  <Slider settings={settings}>
-    <Slide>Slide 1</Slide>
-    <Slide>Slide 2</Slide>
-    <Slide>Slide 3</Slide>
-    <Slide>Slide 4</Slide>
-  </Slider>
-)
+export const Horizontal: Story = {
+  render: () => (
+    <Slider settings={settings}>
+      <Slide>Slide 1</Slide>
+      <Slide>Slide 2</Slide>
+      <Slide>Slide 3</Slide>
+      <Slide>Slide 4</Slide>
+    </Slider>
+  )
+}
 
 const verticalSettings: Settings = {
   vertical: true,
@@ -38,11 +43,13 @@ const verticalSettings: Settings = {
   slidesToShow: 1
 }
 
-export const Vertical: Story = () => (
-  <Slider settings={verticalSettings}>
-    <Slide>Slide 1</Slide>
-    <Slide>Slide 2</Slide>
-    <Slide>Slide 3</Slide>
-    <Slide>Slide 4</Slide>
-  </Slider>
-)
+export const Vertical: Story = {
+  render: () => (
+    <Slider settings={verticalSettings}>
+      <Slide>Slide 1</Slide>
+      <Slide>Slide 2</Slide>
+      <Slide>Slide 3</Slide>
+      <Slide>Slide 4</Slide>
+    </Slider>
+  )
+}

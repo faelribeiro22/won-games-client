@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react'
-import Ribbon, { RibbonProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import Ribbon from '.'
 
-export default {
+const meta = {
   title: 'Ribbon',
   component: Ribbon,
   args: {
@@ -12,17 +12,22 @@ export default {
       type: 'string'
     }
   }
-} as Meta
+} satisfies Meta<typeof Ribbon>
 
-export const Basic: Story<RibbonProps> = (args) => (
-  <div
-    style={{
-      width: '40rem',
-      height: '25rem',
-      position: 'relative',
-      background: '#888'
-    }}
-  >
-    <Ribbon {...args} />
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof Ribbon>
+
+export const Basic: Story = {
+  render: (args) => (
+    <div
+      style={{
+        width: '40rem',
+        height: '25rem',
+        position: 'relative',
+        background: '#888'
+      }}
+    >
+      <Ribbon {...args} />
+    </div>
+  )
+}

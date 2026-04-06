@@ -1,8 +1,8 @@
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { MdEmail } from 'react-icons/md'
-import TextField, { TextFieldProps } from '.'
+import TextField from '.'
 
-export default {
+const meta = {
   title: 'Form/TextField',
   component: TextField,
   args: {
@@ -16,31 +16,37 @@ export default {
     onInput: { action: 'changed' },
     icon: { control: 'object' }
   }
-} as Meta
+} satisfies Meta<typeof TextField>
 
-export const Default: Story<TextFieldProps> = (args) => (
-  <div style={{ maxWidth: 300, padding: 15 }}>
-    <TextField {...args} />
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof TextField>
 
-export const withIcon: Story = (args) => (
-  <div style={{ maxWidth: 300, padding: 15 }}>
-    <TextField {...args} />
-  </div>
-)
-
-export const withError: Story = (args) => (
-  <div style={{ maxWidth: 300, padding: 15 }}>
-    <TextField {...args} />
-  </div>
-)
-
-withIcon.args = {
-  size: 'small',
-  icon: <MdEmail />
+export const Default: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: 300, padding: 15 }}>
+      <TextField {...args} />
+    </div>
+  )
 }
 
-withError.args = {
-  error: 'Ops ... something is wrong'
+export const withIcon: Story = {
+  args: {
+    icon: <MdEmail />
+  },
+  render: (args) => (
+    <div style={{ maxWidth: 300, padding: 15 }}>
+      <TextField {...args} />
+    </div>
+  )
+}
+
+export const withError: Story = {
+  args: {
+    error: 'Ops ... something is wrong'
+  },
+  render: (args) => (
+    <div style={{ maxWidth: 300, padding: 15 }}>
+      <TextField {...args} />
+    </div>
+  )
 }

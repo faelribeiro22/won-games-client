@@ -1,13 +1,18 @@
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import FormSignUp from '.'
 
-export default {
+const meta = {
   title: 'Form/FormSignUp',
   component: FormSignUp
-} as Meta
+} satisfies Meta<typeof FormSignUp>
 
-export const Basic: Story = (args) => (
-  <div style={{ width: 300, margin: 'auto' }}>
-    <FormSignUp {...args} />
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof FormSignUp>
+
+export const Basic: Story = {
+  render: () => (
+    <div style={{ width: 300, margin: 'auto' }}>
+      <FormSignUp />
+    </div>
+  )
+}

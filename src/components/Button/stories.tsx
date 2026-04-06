@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { MdAddShoppingCart } from 'react-icons/md'
-import Button, { ButtonProps } from '.'
+import Button from '.'
 
-export default {
+const meta = {
   title: 'Button',
   component: Button,
   argTypes: {
@@ -14,27 +13,30 @@ export default {
       type: ''
     }
   }
-} as unknown as Meta<ButtonProps>
+} satisfies Meta<typeof Button>
 
-export const Basic: Story<ButtonProps> = (args: any) => <Button {...args} />
+export default meta
+type Story = StoryObj<typeof Button>
 
-Basic.args = {
-  children: 'Buy Now'
+export const Basic: Story = {
+  args: {
+    children: 'Buy Now'
+  }
 }
 
-export const withIcon: Story = (args: any) => <Button {...args} />
-
-withIcon.args = {
-  size: 'small',
-  children: 'Buy Now',
-  icon: <MdAddShoppingCart />
+export const withIcon: Story = {
+  args: {
+    size: 'small',
+    children: 'Buy Now',
+    icon: <MdAddShoppingCart />
+  }
 }
 
-export const asLink: Story = (args: any) => <Button {...args} />
-
-asLink.args = {
-  size: 'large',
-  children: 'Buy Now',
-  as: 'a',
-  href: '/teste'
+export const asLink: Story = {
+  args: {
+    size: 'large',
+    children: 'Buy Now',
+    as: 'a',
+    href: '/teste'
+  }
 }

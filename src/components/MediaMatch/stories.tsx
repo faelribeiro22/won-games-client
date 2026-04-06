@@ -1,20 +1,27 @@
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import MediaMatch from '.'
 
-export default {
+const meta = {
   title: 'MediaMatch',
   component: MediaMatch
-} as Meta
+} satisfies Meta<typeof MediaMatch>
 
-export const Desktop: Story = () => (
-  <MediaMatch greaterThan="medium">Only on Desktop</MediaMatch>
-)
-export const Mobile: Story = () => (
-  <MediaMatch lessThan="medium">Only on Mobile</MediaMatch>
-)
+export default meta
+type Story = StoryObj<typeof MediaMatch>
 
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'mobile1'
+export const Desktop: Story = {
+  render: () => (
+    <MediaMatch greaterThan="medium">Only on Desktop</MediaMatch>
+  )
+}
+
+export const Mobile: Story = {
+  render: () => (
+    <MediaMatch lessThan="medium">Only on Mobile</MediaMatch>
+  ),
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1'
+    }
   }
 }

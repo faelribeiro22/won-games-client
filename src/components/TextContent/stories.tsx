@@ -1,8 +1,8 @@
-import { Story, Meta } from '@storybook/react'
-import TextContent, { TextContentProps } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import TextContent from '.'
 import textMock from './mock'
 
-export default {
+const meta = {
   title: 'Game/TextContent',
   component: TextContent,
   args: textMock,
@@ -11,8 +11,9 @@ export default {
       default: 'won-dark'
     }
   }
-} as Meta
+} satisfies Meta<typeof TextContent>
 
-export const Basic: Story<TextContentProps> = (args) => (
-  <TextContent {...args} />
-)
+export default meta
+type Story = StoryObj<typeof TextContent>
+
+export const Basic: Story = {}

@@ -1,8 +1,8 @@
-import { Story, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import GameDetails, { GameDetailsProps } from '.'
 import mockGame from './mock'
 
-export default {
+const meta = {
   title: 'Game/GameDetails',
   component: GameDetails,
   parameters: {
@@ -10,7 +10,7 @@ export default {
       default: 'won-dark'
     }
   },
-  args: mockGame,
+  args: mockGame as GameDetailsProps,
   argTypes: {
     releaseDate: {
       control: 'date'
@@ -28,10 +28,15 @@ export default {
       }
     }
   }
-} as Meta
+} satisfies Meta<typeof GameDetails>
 
-export const Basic: Story<GameDetailsProps> = (args) => (
-  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
-    <GameDetails {...args} />
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof GameDetails>
+
+export const Basic: Story = {
+  render: (args) => (
+    <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
+      <GameDetails {...args} />
+    </div>
+  )
+}
