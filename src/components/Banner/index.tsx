@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import Button from 'components/Button'
-import Ribbon, { RibbonColors, RibbonSize } from 'components/Ribbon'
+import Ribbon, { type RibbonColors, type RibbonSize } from 'components/Ribbon'
 
 export type BannerProps = {
   img: string
@@ -51,6 +51,7 @@ const Banner = ({
         </h2>
         <h3
           className="text-white text-small font-normal mb-xsmall [&_strong]:text-primary [&_strong]:font-bold md:text-large"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: This is a trusted content coming from the CMS
           dangerouslySetInnerHTML={{ __html: subtitle }}
         />
         <Button as="a" href={buttonLink} size="large">
